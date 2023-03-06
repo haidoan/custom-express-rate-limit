@@ -1,8 +1,8 @@
-<h1>Custom Rate Limit for for Express API with Redis</h1>
+<h1>Custom Rate Limit for for Express API with Redis for Sanbong24h.vn</h1>
 
 
-Rate limit for API call is very important for protect server from expected API calls.
-Because this is simple and transparent enough so that I built simple middle ware but you can have a look on the popular NPM package [express-rate-limit](https://github.com/express-rate-limit/express-rate-limit).
+Rate limit for API call is very important for protect server from expected API calls. This simple rate limit is using in [sanbong24h.vn](https://sanbong24h.vn)
+Because this is simple and transparent enough so that I built simple middleware but you can have a look on the popular NPM package [express-rate-limit](https://github.com/express-rate-limit/express-rate-limit).
 
 **How it works** 
 
@@ -13,8 +13,8 @@ You can alway use in-memory but it will not work properly when running multiple 
 ```
 const app = express()
 const { limiter } = require('./lib/index')
-const MAX_CAPACITY = 10 //
-const RATE = 10 //
+const MAX_CAPACITY = 10 // maximum number of api call allow in a second
+const RATE = 1 // number of token will be refilled every second
 app.use('/', limiter({ max_capacity: MAX_CAPACITY, rate: RATE }))
 
 ```
@@ -27,8 +27,8 @@ app.use('/', limiter({ max_capacity: MAX_CAPACITY, rate: RATE }))
 
 - start server : `node index.js`
 - call API `curl localhost:3000/hi`
-    - status code 200 if not success
-    - status code 429 if hit rate limited     
+    - http status code 200 if not success
+    - http status code 429 if hit rate limited     
 
 
 **Test**
