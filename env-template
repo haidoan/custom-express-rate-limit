@@ -1,0 +1,6 @@
+NODE_ENV=local
+PORT=3000
+# redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_PASSWORD=test1234

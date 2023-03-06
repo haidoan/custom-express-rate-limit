@@ -1,0 +1,20 @@
+{
+  "name": "rate-limit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "ioredis": "^5.3.1"
+  },
+  "devDependencies": {
+    "supertest": "^6.3.3",
+    "jest": "^29.4.3"
+  }
+}
