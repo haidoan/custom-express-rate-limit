@@ -1,4 +1,5 @@
-<h1>Custom Rate Limit for for Express API with Redis for Sanbong24h.vn</h1>
+# Custom Rate Limit for for Express API with Redis for Sanbong24h.vn
+Simple rate limit middleware with express for the [Sanbong24h.vn](https://sanbong24h.vn)
 
 
 Rate limit for API call is very important for protect server from expected API calls. This simple rate limit is using in [sanbong24h.vn](https://sanbong24h.vn)
