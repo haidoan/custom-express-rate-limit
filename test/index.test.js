@@ -27,6 +27,7 @@ describe(`Test API call with maximum ${MAX_CAPACITY} calls / second`, () => {
     const userId = getRandomUserId()
     let count = 0;
     const tries = MAX_CAPACITY
+    // try to call 3 apis within 1 second
     for (let i = 0; i < tries; i++) {
       const res = await request(app)
         .get("/hi")
@@ -38,21 +39,22 @@ describe(`Test API call with maximum ${MAX_CAPACITY} calls / second`, () => {
     expect(count).toBe(tries);
   });
 
-  it(`Should hit rate limit with mora than ${MAX_CAPACITY} API call / second`, async () => {
+  it(`Should hit rate limit with more than ${MAX_CAPACITY} API call / second`, async () => {
     const userId = getRandomUserId()
     let count = 0;
     const tries = MAX_CAPACITY + 1
     const statusCodes = []
+    // try to call 4 apis within 1 second
     for (let i = 0; i < tries; i++) {
       const res = await request(app)
         .get("/hi")
         .set('user_id', userId);
         statusCodes.push(res.statusCode);
     }
-    expect(statusCodes[0]).toBe(200);
-    expect(statusCodes[1]).toBe(200);
-    expect(statusCodes[2]).toBe(200);
-    expect(statusCodes[3]).toBe(429);
+    expect(statusCodes[0]).toBe(200); // ok
+    expect(statusCodes[1]).toBe(200); // still ok
+    expect(statusCodes[2]).toBe(200); // still ok
+    expect(statusCodes[3]).toBe(429); // rate limit
   });
 });
 
