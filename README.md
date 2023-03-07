@@ -1,7 +1,7 @@
 # Custom API rate limit
 Simple rate limit middleware with express and redis for the [Sanbong24h.vn](https://sanbong24h.vn)
 
-
+## Introduction
 Rate limit for API call is very important for protect server from expected API calls. This simple rate limit is using in [sanbong24h.vn](https://sanbong24h.vn)
 Because this is simple and transparent enough so that I built simple middleware but you can have a look on the popular NPM package [express-rate-limit](https://github.com/express-rate-limit/express-rate-limit).
 
